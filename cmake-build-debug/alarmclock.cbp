@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="alarmclock"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_BUILD">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_BUILD"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPLOAD">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPLOAD"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_CLEAN">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_CLEAN"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_PROGRAM">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_PROGRAM"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="alarmclock">
+				<Option output="/home/dmitry/alarmclock/cmake-build-debug/alarmclock" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DF_CPU=16000000L"/>
+					<Add option="-DPLATFORMIO=30300"/>
+					<Add option="-DARDUINO_ARCH_AVR"/>
+					<Add option="-DARDUINO_AVR_NANO"/>
+					<Add option="-DARDUINO=10618"/>
+					<Add option="-D__AVR_ATmega328P__"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/cores/arduino"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/variants/eightanaloginputs"/>
+					<Add directory="/home/dmitry/alarmclock/lib/TimedAction"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire/src"/>
+					<Add directory="/home/dmitry/alarmclock/lib/LiquidCrystal_I2C"/>
+					<Add directory="/home/dmitry/alarmclock/lib/LCD_1602_RUS"/>
+					<Add directory="/home/dmitry/alarmclock/lib/TimeLib"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/HID/src"/>
+					<Add directory="/home/dmitry/alarmclock/lib/DS1307RTC"/>
+					<Add directory="/home/dmitry/alarmclock/lib/Arduino_FreeRTOS"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SoftwareSerial/src"/>
+					<Add directory="/home/dmitry/alarmclock/src"/>
+					<Add directory="/home/dmitry/alarmclock/lib/StandardCplusplus"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/EEPROM/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI1/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Servo/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire1/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Adafruit_CircuitPlayground"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Adafruit_CircuitPlayground/utility"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Bridge/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Esplora/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Ethernet/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Firmata"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Firmata/utility"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/GSM/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Keyboard/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/LiquidCrystal/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Mouse/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Robot_Control/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Robot_Motor/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/SD/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Scheduler/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/SpacebrewYun/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Stepper/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/TFT/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Temboo/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/USBHost/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/WiFi/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include"/>
+					<Add directory="/home/dmitry/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/4.9.2/include"/>
+					<Add directory="/home/dmitry/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/4.9.2/include-fixed"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 alarmclock"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="alarmclock/fast">
+				<Option output="/home/dmitry/alarmclock/cmake-build-debug/alarmclock" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DF_CPU=16000000L"/>
+					<Add option="-DPLATFORMIO=30300"/>
+					<Add option="-DARDUINO_ARCH_AVR"/>
+					<Add option="-DARDUINO_AVR_NANO"/>
+					<Add option="-DARDUINO=10618"/>
+					<Add option="-D__AVR_ATmega328P__"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/cores/arduino"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/variants/eightanaloginputs"/>
+					<Add directory="/home/dmitry/alarmclock/lib/TimedAction"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire/src"/>
+					<Add directory="/home/dmitry/alarmclock/lib/LiquidCrystal_I2C"/>
+					<Add directory="/home/dmitry/alarmclock/lib/LCD_1602_RUS"/>
+					<Add directory="/home/dmitry/alarmclock/lib/TimeLib"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/HID/src"/>
+					<Add directory="/home/dmitry/alarmclock/lib/DS1307RTC"/>
+					<Add directory="/home/dmitry/alarmclock/lib/Arduino_FreeRTOS"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SoftwareSerial/src"/>
+					<Add directory="/home/dmitry/alarmclock/src"/>
+					<Add directory="/home/dmitry/alarmclock/lib/StandardCplusplus"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/EEPROM/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI1/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Servo/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire1/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Adafruit_CircuitPlayground"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Adafruit_CircuitPlayground/utility"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Bridge/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Esplora/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Ethernet/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Firmata"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Firmata/utility"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/GSM/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Keyboard/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/LiquidCrystal/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Mouse/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Robot_Control/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Robot_Motor/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/SD/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Scheduler/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/SpacebrewYun/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Stepper/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/TFT/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/Temboo/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/USBHost/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/framework-arduinoavr/libraries/WiFi/src"/>
+					<Add directory="/home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include"/>
+					<Add directory="/home/dmitry/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/4.9.2/include"/>
+					<Add directory="/home/dmitry/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/4.9.2/include-fixed"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 alarmclock/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_TEST">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_TEST"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPLOADFS">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPLOADFS"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_REBUILD_PROJECT_INDEX">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_REBUILD_PROJECT_INDEX"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPDATE_ALL">
+				<Option working_dir="/home/dmitry/alarmclock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPDATE_ALL"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/dmitry/alarmclock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/dmitry/alarmclock/src/Beeper/Beeper.cpp">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/Beeper/Beeper.h">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/Button/Button.cpp">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/Button/Button.h">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/CommandExecutor.cpp">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/CommandExecutor.h">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/Light/Light.cpp">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/Light/Light.h">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/Player/Player.cpp">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/Player/Player.h">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/src/alarmclock.cpp">
+			<Option target="alarmclock"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/dmitry/alarmclock/CMakeListsPrivate.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
