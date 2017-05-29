@@ -9,7 +9,6 @@
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
 #include <TimedAction.h>
-#include <Arduino_FreeRTOS.h>
 
 #include <Button/Button.h>
 #include <Light/Light.h>
@@ -28,8 +27,7 @@ Beeper beeper = Beeper(3);
 SoftwareSerial BTSerial(8, 7); // RX, TX
 LiquidCrystal_I2C lcd(63, 16, 2);
 Player player(&beeper);
-//CommandExecutor<HardwareSerial> executor(&Serial, &lcd, &RTC, &beeper, &light, &player);
-CommandExecutor<HardwareSerial> executor(&Serial, &lcd, &RTC, &beeper, &light);
+CommandExecutor<HardwareSerial> executor(&Serial, &lcd, &RTC, &beeper, &light, &player);
 
 void print2digits(int number) {
     if (number >= 0 && number < 10) {
@@ -38,22 +36,20 @@ void print2digits(int number) {
     lcd.print(number);
 }
 
-void UpdateTime(void *vParams);
+void updateTime();
 
-TaskHandle_t UpdateTimeHandle;
+void checkButton();
 
-void CheckButton(void *vParams);
+void serialAction();
 
-void SerialAction(void *vParams);
+void playAction();
 
-TaskHandle_t PlayerHandle;
-
-void PlayerAction(void *vParams);
+TimedAction updateTimeA = TimedAction(1000, updateTime),
+        checkButtonA = TimedAction(10, checkButton),
+        serialA = TimedAction(100, serialAction),
+        playerA = TimedAction(1, playAction);
 
 void setup() {
-    __malloc_heap_end = (char *) RAMEND;
-//    __malloc_heap_start = (char *) RAMSTART;
-
     beeper.beep(300, 200);
     beeper.beep(450, 200);
 
@@ -63,120 +59,95 @@ void setup() {
     lcd.begin(); // for 16 x 2 LCD module
     lcd.backlight();
     lcd.clear();
-//    xTaskCreate(UpdateTime, "UpdateTime", 136, NULL, 2, &UpdateTimeHandle);
-//    xTaskCreate(UpdateTime, "UpdateTime", 230, NULL, 2, &UpdateTimeHandle);
-//    xTaskCreate(CheckButton, "CheckButton", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-    xTaskCreate(SerialAction, "SerialAction", 90, NULL, 2, NULL);
-    xTaskCreate(PlayerAction, "PlayerAction", 250, NULL, 1, &PlayerHandle);
-//    vTaskStartScheduler();
+    player.setRepeat(false);
+//    player.start();
 }
 
-void loop() {}
+void loop() {
+    updateTimeA.check();
+    checkButtonA.check();
+    serialA.check();
+    playerA.check();
+}
 
-tmElements_t tm;
+void updateTime() {
+    tmElements_t tm;
 
-void UpdateTime(void *pvParameters) {
-    (void) pvParameters;
-    for (;;) {
-        lcd.home();
-        if (RTC.read(tm)) {
-            print2digits(tm.Hour);
-            lcd.print(':');
-            print2digits(tm.Minute);
-            lcd.print(':');
-            print2digits(tm.Second);
-            lcd.setCursor(0, 1);
-            print2digits(tm.Day);
-            lcd.print('/');
-            print2digits(tm.Month);
-            lcd.print('/');
-            lcd.print(tmYearToCalendar(tm.Year));
+    lcd.home();
+    if (RTC.read(tm)) {
+        print2digits(tm.Hour);
+        lcd.print(':');
+        print2digits(tm.Minute);
+        lcd.print(':');
+        print2digits(tm.Second);
+        lcd.setCursor(0, 1);
+        print2digits(tm.Day);
+        lcd.print('/');
+        print2digits(tm.Month);
+        lcd.print('/');
+        lcd.print(tmYearToCalendar(tm.Year));
+    } else {
+        if (RTC.chipPresent()) {
+            lcd.println("The RTC is stopped.");
+            beeper.beep(400, 3000);
+            delay(5000);
+            tm.Year = 30;
+            tm.Month = 0;
+            tm.Day = 0;
+            tm.Hour = 0;
+            tm.Minute = 0;
+            tm.Second = 0;
+            RTC.write(tm);
         } else {
-            if (RTC.chipPresent()) {
-                lcd.println("The RTC is stopped.");
-                beeper.beep(400, 3000);
-                vTaskDelay(5000 / portTICK_PERIOD_MS);
-                tm.Year = 30;
-                tm.Month = 0;
-                tm.Day = 0;
-                tm.Hour = 0;
-                tm.Minute = 0;
-                tm.Second = 0;
-                RTC.write(tm);
-            } else {
-                lcd.println("No RTC presented");
-                beeper.beep(800, 3000);
-                vTaskDelay(5000 / portTICK_PERIOD_MS);
-            }
-            lcd.clear();
+            lcd.println("No RTC presented");
+            beeper.beep(800, 3000);
+            delay(5000);
         }
-        Serial.print("UT ");
-        Serial.println(uxTaskGetStackHighWaterMark(NULL));
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
-}
-
-void CheckButton(void *pvParameters) {
-    (void) pvParameters;
-
-    for (;;) {
-        if (buttonBack.check()) {
-            beeper.beep(1500, 300);
-        }
-        if (buttonSel.check()) {
-            beeper.beep(500, 300);
-        }
-        if (buttonUp.check()) {
-            light.turnOn();
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
-            light.turnOff();
-        }
-        if (buttonDown.check()) {
-            beeper.click();
-        }
-        vTaskDelay(500 / portTICK_PERIOD_MS);
-
-        Serial.print("CheckButton ");
-        Serial.println(uxTaskGetStackHighWaterMark(NULL));
-    }
-}
-
-
-char buf[ALARMCLOCK_BUFFER_LENGTH];
-
-void SerialAction(void *pvParameters) {
-    (void) pvParameters;
-
-    for (;;) {
-        if (Serial.available()) {
-            int i = 0;
-            for (; Serial.available(); i++) {
-                buf[i] = (char) Serial.read();
-            }
-            buf[i] = 0;
-
-            executor.execute(buf);
-        }
-
-//            int i = 0;
-//            for (; BTSerial.available(); i++) {
-//                buf[i] = (char) BTSerial.read();
-//            }
-//            buf[i] = 0;
-//            executor.execute(buf);
-//        }
-        vTaskDelay(500 / portTICK_PERIOD_MS);
-    }
-}
-
-void PlayerAction(void *vParams) {
-    lcd.clear();
-    lcd.print(uxTaskGetStackHighWaterMark(NULL));
-    for (;;) {
         lcd.clear();
-        lcd.print(uxTaskGetStackHighWaterMark(NULL));
-        player.play_rtttl(Player::song);
-        vTaskDelay(5000 / portTICK_PERIOD_MS);
     }
 }
 
+void checkButton() {
+    if (buttonBack.check()) {
+        beeper.beep(1500, 300);
+    }
+    if (buttonSel.check()) {
+        beeper.beep(500, 300);
+    }
+    if (buttonUp.check()) {
+        light.turnOn();
+        delay(1000);
+        light.turnOff();
+    }
+    if (buttonDown.check()) {
+        beeper.click();
+    }
+}
+
+void serialAction() {
+    char buf[ALARMCLOCK_BUFFER_LENGTH];
+
+//    if (BTSerial.available()) {
+//        int i = 0;
+//        for (; BTSerial.available(); i++) {
+//            buf[i] = (char) BTSerial.read();
+//        }
+//        buf[i] = 0;
+//
+//        executor.execute(buf);
+//    }
+
+    if (Serial.available()) {
+        int i = 0;
+        for (; Serial.available(); i++) {
+            buf[i] = (char) Serial.read();
+        }
+        buf[i] = 0;
+
+        executor.execute(buf);
+    }
+}
+
+void playAction() {
+    player.play();
+};

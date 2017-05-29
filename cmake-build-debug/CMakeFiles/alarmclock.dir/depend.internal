@@ -628,6 +628,28 @@ CMakeFiles/alarmclock.dir/src/Button/Button.cpp.o
 CMakeFiles/alarmclock.dir/src/CommandExecutor.cpp.o
  ../lib/DS1307RTC/DS1307RTC.h
  ../lib/LiquidCrystal_I2C/LiquidCrystal_I2C.h
+ ../lib/StandardCplusplus/StandardCplusplus.h
+ ../lib/StandardCplusplus/algorithm
+ ../lib/StandardCplusplus/basic_definitions
+ ../lib/StandardCplusplus/char_traits
+ ../lib/StandardCplusplus/cstddef
+ ../lib/StandardCplusplus/cstdio
+ ../lib/StandardCplusplus/cstdlib
+ ../lib/StandardCplusplus/cwchar
+ ../lib/StandardCplusplus/cwctype
+ ../lib/StandardCplusplus/exception
+ ../lib/StandardCplusplus/func_exception
+ ../lib/StandardCplusplus/functional
+ ../lib/StandardCplusplus/initializer_list
+ ../lib/StandardCplusplus/iosfwd
+ ../lib/StandardCplusplus/iterator
+ ../lib/StandardCplusplus/iterator_base
+ ../lib/StandardCplusplus/memory
+ ../lib/StandardCplusplus/new
+ ../lib/StandardCplusplus/system_configuration.h
+ ../lib/StandardCplusplus/type_traits
+ ../lib/StandardCplusplus/utility.h
+ ../lib/StandardCplusplus/vector
  ../lib/TimeLib/Time.h
  ../lib/TimeLib/TimeLib.h
  ../src/Beeper/Beeper.h
@@ -1250,15 +1272,28 @@ CMakeFiles/alarmclock.dir/src/Light/Light.cpp.o
  /home/dmitry/alarmclock/src/Light/Light.cpp
  /home/dmitry/alarmclock/src/Light/Light.h
 CMakeFiles/alarmclock.dir/src/Player/Player.cpp.o
- ../lib/Arduino_FreeRTOS/Arduino_FreeRTOS.h
- ../lib/Arduino_FreeRTOS/FreeRTOSConfig.h
- ../lib/Arduino_FreeRTOS/FreeRTOSVariant.h
- ../lib/Arduino_FreeRTOS/list.h
- ../lib/Arduino_FreeRTOS/mpu_wrappers.h
- ../lib/Arduino_FreeRTOS/portable.h
- ../lib/Arduino_FreeRTOS/portmacro.h
- ../lib/Arduino_FreeRTOS/projdefs.h
- ../lib/Arduino_FreeRTOS/task.h
+ ../lib/StandardCplusplus/StandardCplusplus.h
+ ../lib/StandardCplusplus/algorithm
+ ../lib/StandardCplusplus/basic_definitions
+ ../lib/StandardCplusplus/char_traits
+ ../lib/StandardCplusplus/cstddef
+ ../lib/StandardCplusplus/cstdio
+ ../lib/StandardCplusplus/cstdlib
+ ../lib/StandardCplusplus/cwchar
+ ../lib/StandardCplusplus/cwctype
+ ../lib/StandardCplusplus/exception
+ ../lib/StandardCplusplus/func_exception
+ ../lib/StandardCplusplus/functional
+ ../lib/StandardCplusplus/initializer_list
+ ../lib/StandardCplusplus/iosfwd
+ ../lib/StandardCplusplus/iterator
+ ../lib/StandardCplusplus/iterator_base
+ ../lib/StandardCplusplus/memory
+ ../lib/StandardCplusplus/new
+ ../lib/StandardCplusplus/system_configuration.h
+ ../lib/StandardCplusplus/type_traits
+ ../lib/StandardCplusplus/utility.h
+ ../lib/StandardCplusplus/vector
  ../src/Beeper/Beeper.h
  /home/dmitry/.platformio/packages/framework-arduinoavr/cores/arduino/Arduino.h
  /home/dmitry/.platformio/packages/framework-arduinoavr/cores/arduino/HardwareSerial.h
@@ -1550,7 +1585,6 @@ CMakeFiles/alarmclock.dir/src/Player/Player.cpp.o
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/portpins.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/sfr_defs.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/version.h
- /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/wdt.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/xmega.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/ctype.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/inttypes.h
@@ -1567,17 +1601,30 @@ CMakeFiles/alarmclock.dir/src/Player/Player.cpp.o
  /home/dmitry/alarmclock/src/Player/Player.cpp
  /home/dmitry/alarmclock/src/Player/Player.h
 CMakeFiles/alarmclock.dir/src/alarmclock.cpp.o
- ../lib/Arduino_FreeRTOS/Arduino_FreeRTOS.h
- ../lib/Arduino_FreeRTOS/FreeRTOSConfig.h
- ../lib/Arduino_FreeRTOS/FreeRTOSVariant.h
- ../lib/Arduino_FreeRTOS/list.h
- ../lib/Arduino_FreeRTOS/mpu_wrappers.h
- ../lib/Arduino_FreeRTOS/portable.h
- ../lib/Arduino_FreeRTOS/portmacro.h
- ../lib/Arduino_FreeRTOS/projdefs.h
- ../lib/Arduino_FreeRTOS/task.h
  ../lib/DS1307RTC/DS1307RTC.h
  ../lib/LiquidCrystal_I2C/LiquidCrystal_I2C.h
+ ../lib/StandardCplusplus/StandardCplusplus.h
+ ../lib/StandardCplusplus/algorithm
+ ../lib/StandardCplusplus/basic_definitions
+ ../lib/StandardCplusplus/char_traits
+ ../lib/StandardCplusplus/cstddef
+ ../lib/StandardCplusplus/cstdio
+ ../lib/StandardCplusplus/cstdlib
+ ../lib/StandardCplusplus/cwchar
+ ../lib/StandardCplusplus/cwctype
+ ../lib/StandardCplusplus/exception
+ ../lib/StandardCplusplus/func_exception
+ ../lib/StandardCplusplus/functional
+ ../lib/StandardCplusplus/initializer_list
+ ../lib/StandardCplusplus/iosfwd
+ ../lib/StandardCplusplus/iterator
+ ../lib/StandardCplusplus/iterator_base
+ ../lib/StandardCplusplus/memory
+ ../lib/StandardCplusplus/new
+ ../lib/StandardCplusplus/system_configuration.h
+ ../lib/StandardCplusplus/type_traits
+ ../lib/StandardCplusplus/utility.h
+ ../lib/StandardCplusplus/vector
  ../lib/TimeLib/TimeLib.h
  ../lib/TimedAction/TimedAction.h
  ../src/Beeper/Beeper.h
@@ -1877,7 +1924,6 @@ CMakeFiles/alarmclock.dir/src/alarmclock.cpp.o
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/portpins.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/sfr_defs.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/version.h
- /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/wdt.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/avr/xmega.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/ctype.h
  /home/dmitry/.platformio/packages/toolchain-atmelavr/avr/include/inttypes.h

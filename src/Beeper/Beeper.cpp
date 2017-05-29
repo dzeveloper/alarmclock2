@@ -3,17 +3,9 @@
 #import <semphr.h>
 #include "Beeper.h"
 
-SemaphoreHandle_t beeperMutex;
-
 Beeper::Beeper(int pin) {
-    if (beeperMutex == NULL) {
-        beeperMutex = xSemaphoreCreateMutex();
-        if ((beeperMutex) != NULL)
-            xSemaphoreGive((beeperMutex));
-    }
-
     this->tonePin = pin;
-    pinMode(pin, OUTPUT);
+    pinMode((uint8_t) pin, OUTPUT);
 }
 
 void Beeper::beep() {
@@ -21,22 +13,14 @@ void Beeper::beep() {
 }
 
 void Beeper::beep(int freq, int duration) {
-    if (xSemaphoreTake(beeperMutex, 0) == pdTRUE) {
-        tone((uint8_t) tonePin, (unsigned int) freq, (unsigned long) duration);
-//        vTaskDelay(duration/portTICK_PERIOD_MS);
-        delay((unsigned long) duration);
-        noTone((uint8_t) tonePin);
-        xSemaphoreGive(beeperMutex);
-    }
+    tone((uint8_t) tonePin, (unsigned int) freq, (unsigned long) duration);
+    delay((unsigned long) duration);
+    noTone((uint8_t) tonePin);
 }
 
 void Beeper::noBeep(int duration) {
-    if (xSemaphoreTake(beeperMutex, 0) == pdTRUE) {
-        noTone((uint8_t) tonePin);
-//        vTaskDelay(duration/portTICK_PERIOD_MS);
-        delay((unsigned long) duration);
-        xSemaphoreGive(beeperMutex);
-    }
+    noTone((uint8_t) tonePin);
+    delay((unsigned long) duration);
 }
 
 void Beeper::click() {

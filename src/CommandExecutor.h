@@ -20,10 +20,9 @@ class CommandExecutor {
     DS1307RTC *rtc;
     Beeper *beeper;
     Light *light;
-//    Player* player;
+    Player* player;
 public:
-//    CommandExecutor(Serial_T *serial, LiquidCrystal_I2C *lcd, DS1307RTC *rtc, Beeper *beeper, Light *light, Player* player);
-    CommandExecutor(Serial_T *serial, LiquidCrystal_I2C *lcd, DS1307RTC *rtc, Beeper *beeper, Light *light);
+    CommandExecutor(Serial_T *serial, LiquidCrystal_I2C *lcd, DS1307RTC *rtc, Beeper *beeper, Light *light, Player* player);
 
     void execute(char *cmd);
 };

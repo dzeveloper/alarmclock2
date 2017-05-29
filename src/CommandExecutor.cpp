@@ -2,25 +2,15 @@
 #include <Time.h>
 #include "CommandExecutor.h"
 
-//template<class Serial_T>
-//CommandExecutor<Serial_T>::CommandExecutor(Serial_T *serial, LiquidCrystal_I2C *lcd, DS1307RTC *rtc, Beeper *beeper,
-//                                           Light *light, Player *player) {
-//    this->serial = serial;
-//    this->lcd = lcd;
-//    this->rtc = rtc;
-//    this->beeper = beeper;
-//    this->light = light;
-//    this->player = player;
-//}
-
 template<class Serial_T>
 CommandExecutor<Serial_T>::CommandExecutor(Serial_T *serial, LiquidCrystal_I2C *lcd, DS1307RTC *rtc, Beeper *beeper,
-                                           Light *light) {
+                                           Light *light, Player *player) {
     this->serial = serial;
     this->lcd = lcd;
     this->rtc = rtc;
     this->beeper = beeper;
     this->light = light;
+    this->player = player;
 }
 
 boolean isStrDigit(char *str) {
@@ -71,7 +61,7 @@ boolean readInt(int &buf) {
 
 template<class Serial_T>
 void CommandExecutor<Serial_T>::execute(char *cmd) {
-//    beeper->beep(1000, 50);
+    beeper->beep(1000, 50);
     splitStr(cmd, ' ');
 
     if (cmdEq("time")) {
@@ -94,16 +84,10 @@ void CommandExecutor<Serial_T>::execute(char *cmd) {
         if (cmdEq("get")) {
             tmElements_t tm;
             rtc->read(tm);
-//            char *str = new char[30];
-            serial->print(tm.Year);serial->print(' ');
-            serial->print(tm.Month);serial->print(' ');
-            serial->print(tm.Day);serial->print(' ');
-            serial->print(tm.Hour);serial->print(' ');
-            serial->print(tm.Minute);serial->print(' ');
-            serial->print(tm.Second);serial->println();
-//            sprintf(str, "time: %d %d %d %d %d %d", tm.Year, tm.Month, tm.Day, tm.Hour, tm.Minute, tm.Second);
-//            serial->println(str);
-//            delete str;
+            char *str = new char[30];
+            sprintf(str, "time: %d %d %d %d %d %d", tm.Year, tm.Month, tm.Day, tm.Hour, tm.Minute, tm.Second);
+            serial->println(str);
+            delete[] str;
         }
     } else if (cmdEq("light")) {
         nextCmdUnit();
@@ -124,8 +108,57 @@ void CommandExecutor<Serial_T>::execute(char *cmd) {
     } else if (cmdEq("beep")) {
         beeper->beep();
         serial->println("OK");
-//    } else if (cmdEq("play")) {
-//        player->play_rtttl(Player::song);
+    } else if (cmdEq("player")) {
+        nextCmdUnit();
+        if (cmdEq("play")) {
+            player->resetSong();
+            player->start();
+            serial->println("OK");
+        }
+        if (cmdEq("get")) {
+            for (int i = 0; i < player->songsLength; i++) {
+                serial->print(i);
+                serial->print(":");
+                for (int j = 0; player->songs[i][j] != ':'; j++) {
+                    serial->print(player->songs[i][j]);
+                }
+                serial->println();
+            }
+        }
+        if (cmdEq("set")) {
+            int idx;
+            if (readInt(idx)) {
+                player->setSong((char *) player->songs[idx % player->songsLength]);
+                serial->println("OK");
+            } else serial->println("Error: digit expected");
+        }
+        if (cmdEq("repeat")) {
+            nextCmdUnit();
+            if (cmdEq("get")) {
+                serial->println(player->getRepeat());
+            }
+            if (cmdEq("set")) {
+                nextCmdUnit();
+                if (cmdEq("on")) {
+                    player->setRepeat(true);
+                    serial->println("OK");
+                }
+                if (cmdEq("off")) {
+                    player->setRepeat(false);
+                    serial->println("OK");
+                }
+            }
+        }
+
+    } else if (cmdEq("alert")) {
+        nextCmdUnit();
+        if (cmdUnit != NULL) {
+            lcd->clear();
+            lcd->print(cmdUnit);
+            beeper->beep(1000, 1000);
+            delay(2000);
+            lcd->clear();
+        }
     } else {
         serial->println("Cannot execute");
     }

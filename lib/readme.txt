@@ -20,7 +20,7 @@ For example, see how can be organized `Foo` and `Bar` libraries:
 |  |- readme.txt --> THIS FILE
 |- platformio.ini
 |--src
-   |- main.c1
+   |- main.c
 
 Then in `src/main.c` you should use:
 
