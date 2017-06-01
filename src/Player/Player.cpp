@@ -6,12 +6,6 @@ Player::Player(Beeper *beeper) {
     this->doPlay = false;
     this->repeat = false;
     resetSong();
-
-//    songs = std::vector<char[]>();
-//
-//    for (int i = 0; i < sizeof(songs) / sizeof(*songs); i++) {
-//        songs.push_back((const char (&)[]) songs[i]);
-//    }
 };
 
 void Player::setSong(char *song) {
@@ -142,11 +136,19 @@ void Player::play() {
             beeper->noBeep((int) duration);
         }
 
-        if (repeat && !*(noteLnk + 1))
-            resetSong();
+        if (!*(noteLnk + sizeof(noteLnk))) {
+            if (repeat) {
+                resetSong();
+                play();
+            } else pause();
+        }
     }
 }
 
-boolean Player::getRepeat() {
+bool Player::getRepeat() {
     return repeat;
+}
+
+bool Player::isPlaying() {
+    return doPlay;
 }

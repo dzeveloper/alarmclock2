@@ -10,6 +10,7 @@
 #include <Beeper/Beeper.h>
 #include <Light/Light.h>
 #include <Player/Player.h>
+#include <Alarm/Alarm.h>
 
 #define ALARMCLOCK_BUFFER_LENGTH 40
 
@@ -21,8 +22,9 @@ class CommandExecutor {
     Beeper *beeper;
     Light *light;
     Player* player;
+    AlarmsExecutor *alarmsExecutor;
 public:
-    CommandExecutor(Serial_T *serial, LiquidCrystal_I2C *lcd, DS1307RTC *rtc, Beeper *beeper, Light *light, Player* player);
+    CommandExecutor(Serial_T *serial, LiquidCrystal_I2C *lcd, DS1307RTC *rtc, Beeper *beeper, Light *light, Player* player, AlarmsExecutor *alarmsExecutor);
 
     void execute(char *cmd);
 };

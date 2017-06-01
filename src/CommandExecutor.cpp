@@ -4,13 +4,14 @@
 
 template<class Serial_T>
 CommandExecutor<Serial_T>::CommandExecutor(Serial_T *serial, LiquidCrystal_I2C *lcd, DS1307RTC *rtc, Beeper *beeper,
-                                           Light *light, Player *player) {
+                                           Light *light, Player *player, AlarmsExecutor *alarmsExecutor) {
     this->serial = serial;
     this->lcd = lcd;
     this->rtc = rtc;
     this->beeper = beeper;
     this->light = light;
     this->player = player;
+    this->alarmsExecutor = alarmsExecutor;
 }
 
 boolean isStrDigit(char *str) {
@@ -67,13 +68,14 @@ void CommandExecutor<Serial_T>::execute(char *cmd) {
     if (cmdEq("time")) {
         nextCmdUnit();
         if (cmdEq("set")) {
-            int year, month, day, hour, min, sec;
-            if (readInt(year) && readInt(month) && readInt(day) &&
+            int year, month, day, doW, hour, min, sec;
+            if (readInt(year) && readInt(month) && readInt(day) && readInt(doW) &&
                 readInt(hour) && readInt(min) && readInt(sec)) {
                 tmElements_t tm;
                 tm.Year = (uint8_t) year;
                 tm.Month = (uint8_t) month;
                 tm.Day = (uint8_t) day;
+                tm.Wday = (uint8_t) doW;
                 tm.Hour = (uint8_t) hour;
                 tm.Minute = (uint8_t) min;
                 tm.Second = (uint8_t) sec;
@@ -84,10 +86,10 @@ void CommandExecutor<Serial_T>::execute(char *cmd) {
         if (cmdEq("get")) {
             tmElements_t tm;
             rtc->read(tm);
-            char *str = new char[30];
-            sprintf(str, "time: %d %d %d %d %d %d", tm.Year, tm.Month, tm.Day, tm.Hour, tm.Minute, tm.Second);
+            char str[30];
+            sprintf(str, "time: %d %d %d %d %d %d %d",
+                    tm.Year, tm.Month, tm.Day, tm.Wday, tm.Hour, tm.Minute, tm.Second);
             serial->println(str);
-            delete[] str;
         }
     } else if (cmdEq("light")) {
         nextCmdUnit();
@@ -155,12 +157,65 @@ void CommandExecutor<Serial_T>::execute(char *cmd) {
         if (cmdUnit != NULL) {
             lcd->clear();
             lcd->print(cmdUnit);
-            beeper->beep(1000, 1000);
+            beeper->beep(700, 500);
             delay(2000);
             lcd->clear();
+            serial->println("OK");
+        }
+    } else if (cmdEq("alarm")) {
+        nextCmdUnit();
+        if (cmdEq("set")) {
+            int idx,
+                    sH, sMi, sS,
+                    eH, eMi, eS,
+                    Mo, Tu, We, Th, Fr, Sa, Su,
+                    doLight, doPlay, songIdx;
+            if (readInt(idx) &&
+                readInt(sH) && readInt(sMi) && readInt(sS) &&
+                readInt(eH) && readInt(eMi) && readInt(eS) &&
+                readInt(Mo) && readInt(Tu) && readInt(We) && readInt(Th) && readInt(Fr) && readInt(Sa) && readInt(Su) &&
+                readInt(doLight) && readInt(doPlay) && readInt(songIdx)) {
+
+                Time start(sH, sMi, sS), end(eH, eMi, eS);
+                boolean daysOfWeek[DAYS_PER_WEEK] = {Mo, Tu, We, Th, Fr, Sa, Su};
+                Alarm alarm(start, end, daysOfWeek, (bool) doLight, (bool) doPlay, (boolean) songIdx);
+                alarmsExecutor->set(idx, &alarm);
+                serial->println("OK");
+            }
+        }
+        if (cmdEq("get")) {
+            char str[30];
+            for (int i = 0; i < alarmsExecutor->length; i++) {
+                Alarm alarm = alarmsExecutor->get(i);
+                sprintf(str, "%d: %d %d %d ",
+                        i, alarm.getStart().Hour, alarm.getStart().Minute, alarm.getStart().Second);
+                serial->print(str);
+
+                sprintf(str, "- %d %d %d",
+                        alarm.getEnd().Hour, alarm.getEnd().Minute, alarm.getEnd().Second);
+                serial->print(str);
+
+                serial->print(" , ");
+                boolean *DoW = alarm.getDoW();
+                for (int j = 0; j < DAYS_PER_WEEK; j++) {
+                    serial->print(DoW[j]);
+                    serial->print(" ");
+                }
+
+                sprintf(str, ", %d %d %d", alarm.doLight, alarm.doPlay, alarm.songIdx);
+                serial->println(str);
+            }
+        }
+        if (cmdEq("rm")) {
+            int idx;
+            if (readInt(idx)) {
+                Alarm clean;
+                alarmsExecutor->set(idx, &clean);
+                serial->println("OK");
+            }
         }
     } else {
-        serial->println("Cannot execute");
+        serial->println("ERR");
     }
 }
 

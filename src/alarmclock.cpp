@@ -4,7 +4,6 @@
 
 //#define configASSERT( x )     if( ( x ) == 0 ) for (;;){tone(3, 3000, 3000); delay(3000);}
 
-#include <TimeLib.h>
 #include <DS1307RTC.h>
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
@@ -14,6 +13,7 @@
 #include <Light/Light.h>
 #include <Beeper/Beeper.h>
 #include <CommandExecutor.h>
+#include <Alarm/Alarm.h>
 
 //#include <LCD_1602_RUS.h>
 
@@ -27,7 +27,8 @@ Beeper beeper = Beeper(3);
 SoftwareSerial BTSerial(8, 7); // RX, TX
 LiquidCrystal_I2C lcd(63, 16, 2);
 Player player(&beeper);
-CommandExecutor<HardwareSerial> executor(&Serial, &lcd, &RTC, &beeper, &light, &player);
+AlarmsExecutor alarmsExecutor(&light, &player);
+CommandExecutor<HardwareSerial> executor(&Serial, &lcd, &RTC, &beeper, &light, &player, &alarmsExecutor);
 
 void print2digits(int number) {
     if (number >= 0 && number < 10) {
@@ -60,7 +61,6 @@ void setup() {
     lcd.backlight();
     lcd.clear();
     player.setRepeat(false);
-//    player.start();
 }
 
 void loop() {
@@ -105,6 +105,7 @@ void updateTime() {
         }
         lcd.clear();
     }
+    alarmsExecutor.check(tm);
 }
 
 void checkButton() {
@@ -146,6 +147,7 @@ void serialAction() {
 
         executor.execute(buf);
     }
+//    Serial.println(sizeof(Alarm));
 }
 
 void playAction() {

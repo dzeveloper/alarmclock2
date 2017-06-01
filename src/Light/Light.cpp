@@ -16,6 +16,7 @@ void Light::turnOn() {
         return;
     digitalWrite(pin, HIGH);
     digitalWrite(led_pin, HIGH);
+    Serial.println("LIGHT IS ON");
     condition = 1;
 }
 
@@ -24,5 +25,6 @@ void Light::turnOff() {
         return;
     digitalWrite(pin, LOW);
     digitalWrite(led_pin, LOW);
+    Serial.println("LIGHT IS OFF");
     condition = false;
 }

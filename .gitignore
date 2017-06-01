@@ -1,7 +1,7 @@
 .pioenvs
 .piolibdeps
 CMakeListsPrivate.txt
-*.cbp
+*/**.cbp
 Makefile*
-.make
-.marks
+*/**.make
+*/**.marks
